@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mira Lanang | Men's Vitality Supplement</title>
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; background:#0f172a; color:#e5e7eb; }
+    header { background:#111827; color:#22c55e; padding:20px; text-align:center; }
+    .container { padding:20px; max-width:1000px; margin:auto; }
+    .slideshow { position:relative; max-width:100%; height:400px; overflow:hidden; border-radius:12px; }
+    .slide { position:absolute; width:100%; height:100%; opacity:0; transition: opacity 1s ease-in-out; }
+    .slide img { width:100%; height:100%; object-fit:cover; }
+    .active { opacity:1; }
+    h2 { color:#22c55e; }
+    .btn { display:inline-block; background:#22c55e; color:#022c22; padding:15px 25px; text-decoration:none; border-radius:8px; margin-top:20px; font-weight:bold; }
+    .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; margin-top:20px; }
+    .feature { background:#1f2937; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.3); }
+    footer { text-align:center; padding:20px; background:#020617; color:#9ca3af; margin-top:40px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Mira Lanang</h1>
+  <p>Men's Strength & Vitality Booster</p>
+</header>
+
+<div class="container">
+  <div class="slideshow">
+    <div class="slide active"><img src="https://i.ebayimg.com/images/g/azIAAeSwprhn3TJ8/s-l400.jpg" alt="Fitness"></div>
+    <div class="slide"><img src="https://static.vecteezy.com/system/resources/thumbnails/023/010/709/small/ai-generative-strong-athletic-men-pumping-up-muscles-workout-bodybuilding-concept-muscular-bodybuilder-men-doing-exercises-in-gym-naked-photo.jpg"
+       alt="Strength"></div>
+    <div class="slide"><img src="https://i.etsystatic.com/31463904/r/il/33aa00/6625134675/il_794xN.6625134675_35qk.jpg" alt="Workout"></div>
+  </div>
+
+  <h2>What is Mira Lanang?</h2>
+  <p>
+    Mira Lanang is a specially formulated supplement designed to support men's vitality, stamina, and overall performance. It blends natural ingredients known to enhance energy levels, endurance, and confidence.
+  </p>
+
+  <h2>Key Benefits</h2>
+  <div class="features">
+    <div class="feature">Boosts energy and stamina</div>
+    <div class="feature">Supports male vitality and performance</div>
+    <div class="feature">Enhances physical strength</div>
+    <div class="feature">Promotes confidence and well-being</div>
+  </div>
+
+  <h2>How It Works</h2>
+  <p>
+    Mira Lanang works by supporting the body's natural systems responsible for energy production and hormonal balance. Its blend of nutrients helps improve circulation, stamina, and overall physical performance.
+  </p>
+
+  <a class="btn" href="https://wa.me/233548416564" target="_blank">Order on WhatsApp</a>
+</div>
+
+<footer>
+  <p>&copy; 2026 Mira Lanang. All rights reserved.</p>
+</footer>
+
+<script>
+  let slides = document.querySelectorAll('.slide');
+  let index = 0;
+
+  function showSlides() {
+    slides.forEach((slide) => slide.classList.remove('active'));
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }
+
+  setInterval(showSlides, 3000);
+</script>
+
+</body>
+</html>

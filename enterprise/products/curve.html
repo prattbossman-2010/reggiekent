@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mira Curve | Body Enhancement Supplement</title>
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; background:#fff0f5; color:#4a044e; }
+    header { background:#db2777; color:white; padding:20px; text-align:center; }
+    .container { padding:20px; max-width:1000px; margin:auto; }
+    .slideshow { position:relative; max-width:100%; height:400px; overflow:hidden; border-radius:12px; }
+    .slide { position:absolute; width:100%; height:100%; opacity:0; transition: opacity 1s ease-in-out; }
+    .slide img { width:100%; height:100%; object-fit:cover; }
+    .active { opacity:1; }
+    h2 { color:#be185d; }
+    .btn { display:inline-block; background:#db2777; color:white; padding:15px 25px; text-decoration:none; border-radius:8px; margin-top:20px; }
+    .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; margin-top:20px; }
+    .feature { background:white; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    footer { text-align:center; padding:20px; background:#831843; color:white; margin-top:40px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Mira Curve</h1>
+  <p>Enhance Your Natural Shape & Confidence</p>
+</header>
+
+<div class="container">
+  <div class="slideshow">
+    <div class="slide active"><img src="https://revoobit.co.za/wp-content/uploads/2022/04/Miira-Curve-390x390.png" alt="Beauty"></div>
+    <div class="slide"><img src="https://revoobit.co.za/wp-content/uploads/2022/04/Miira-Curve-Poster-150x150.jpg" alt="Wellness"></div>
+    <div class="slide"><img src="https://revoobit.co.za/wp-content/uploads/2022/04/Miira-Curve-768x768.jpg" alt="Confidence"></div>
+  </div>
+
+  <h2>What is Mira Curve?</h2>
+  <p>
+    Mira Curve is a body enhancement supplement designed to support natural curves, improve body tone, and boost confidence. It combines carefully selected ingredients that help promote a balanced and attractive physique.
+  </p>
+
+  <h2>Key Benefits</h2>
+  <div class="features">
+    <div class="feature">Supports body shaping and enhancement</div>
+    <div class="feature">Promotes a fuller, more balanced figure</div>
+    <div class="feature">Boosts confidence and self-image</div>
+    <div class="feature">Supports overall wellness</div>
+  </div>
+
+  <h2>How It Works</h2>
+  <p>
+    Mira Curve works by supporting the body's natural processes related to fat distribution and hormonal balance. It helps enhance curves while maintaining overall health and wellness.
+  </p>
+
+  <a class="btn" href="https://wa.me/233548416564" target="_blank">Order on WhatsApp</a>
+</div>
+
+<footer>
+  <p>&copy; 2026 Mira Curve. All rights reserved.</p>
+</footer>
+
+<script>
+  let slides = document.querySelectorAll('.slide');
+  let index = 0;
+
+  function showSlides() {
+    slides.forEach((slide) => slide.classList.remove('active'));
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }
+
+  setInterval(showSlides, 3000);
+</script>
+
+</body>
+</html>

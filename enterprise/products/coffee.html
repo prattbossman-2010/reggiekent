@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mira Coffee | Energy & Wellness Blend</title>
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; background:#fff7ed; color:#3f2a1d; }
+    header { background:#7c2d12; color:#ffedd5; padding:20px; text-align:center; }
+    .container { padding:20px; max-width:1000px; margin:auto; }
+    .slideshow { position:relative; max-width:100%; height:400px; overflow:hidden; border-radius:12px; }
+    .slide { position:absolute; width:100%; height:100%; opacity:0; transition: opacity 1s ease-in-out; }
+    .slide img { width:100%; height:100%; object-fit:cover; }
+    .active { opacity:1; }
+    h2 { color:#9a3412; }
+    .btn { display:inline-block; background:#7c2d12; color:#ffedd5; padding:15px 25px; text-decoration:none; border-radius:8px; margin-top:20px; }
+    .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; margin-top:20px; }
+    .feature { background:white; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    footer { text-align:center; padding:20px; background:#431407; color:#ffedd5; margin-top:40px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Mira Coffee</h1>
+  <p>Rich Taste. Natural Energy. Daily Vitality.</p>
+</header>
+
+<div class="container">
+  <div class="slideshow">
+    <div class="slide active"><img src="https://loja.ng/uploadvideos/LOJA111122053135AM.jpg" alt="Coffee cup"></div>
+    <div class="slide"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Coffee cup"></div>
+    <div class="slide"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" alt="Coffee beans"></div>
+    <div class="slide"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Morning coffee"></div>
+  </div>
+
+  <h2>What is Mira Coffee?</h2>
+  <p>
+    Mira Coffee is a specially crafted coffee blend designed to deliver smooth flavor while supporting energy, focus, and overall wellness. It combines premium coffee with carefully selected ingredients to give you a refreshing boost throughout the day.
+  </p>
+
+  <h2>Key Benefits</h2>
+  <div class="features">
+    <div class="feature">Boosts energy and alertness</div>
+    <div class="feature">Enhances focus and productivity</div>
+    <div class="feature">Rich, smooth taste</div>
+    <div class="feature">Supports daily wellness</div>
+  </div>
+
+  <h2>How It Works</h2>
+  <p>
+    Mira Coffee combines natural caffeine with beneficial compounds that help improve mental clarity and sustain energy levels. It provides a balanced boost without the harsh crashes of regular coffee.
+  </p>
+
+  <a class="btn" href="https://wa.me/233548416564" target="_blank">Order on WhatsApp</a>
+</div>
+
+<footer>
+  <p>&copy; 2026 Mira Coffee. All rights reserved.</p>
+</footer>
+
+<script>
+  let slides = document.querySelectorAll('.slide');
+  let index = 0;
+
+  function showSlides() {
+    slides.forEach((slide) => slide.classList.remove('active'));
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }
+
+  setInterval(showSlides, 3000);
+</script>
+
+</body>
+</html>

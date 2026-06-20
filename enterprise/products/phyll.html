@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mira Phyll | Detox & Blood Support Supplement</title>
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; background:#ecfdf5; color:#064e3b; }
+    header { background:#065f46; color:white; padding:20px; text-align:center; }
+    .container { padding:20px; max-width:1000px; margin:auto; }
+    .slideshow { position:relative; max-width:100%; height:400px; overflow:hidden; border-radius:12px; }
+    .slide { position:absolute; width:100%; height:100%; opacity:0; transition: opacity 1s ease-in-out; }
+    .slide img { width:100%; height:100%; object-fit:cover; }
+    .active { opacity:1; }
+    h2 { color:#047857; }
+    .btn { display:inline-block; background:#065f46; color:white; padding:15px 25px; text-decoration:none; border-radius:8px; margin-top:20px; }
+    .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; margin-top:20px; }
+    .feature { background:white; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    footer { text-align:center; padding:20px; background:#022c22; color:white; margin-top:40px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Mira Phyll</h1>
+  <p>Natural Detox & Blood Health Support</p>
+</header>
+
+<div class="container">
+  <div class="slideshow">
+    <div class="slide active"><img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Nature"></div>
+    <div class="slide"><img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352" alt="Healthy food"></div>
+    <div class="slide"><img src="https://buyam.co/storage/products/medium_9a0c3654-93e1-442d-9087-7fc20ad14be4.png" alt="Green plants"></div>
+  </div>
+
+  <h2>What is Mira Phyll?</h2>
+  <p>
+    Mira Phyll is a natural supplement formulated to support detoxification and promote healthy blood. Inspired by plant-based nutrients, it helps cleanse the body and improve overall wellness.
+  </p>
+
+  <h2>Key Benefits</h2>
+  <div class="features">
+    <div class="feature">Supports natural body detox</div>
+    <div class="feature">Promotes healthy blood circulation</div>
+    <div class="feature">Rich in plant-based nutrients</div>
+    <div class="feature">Enhances overall vitality</div>
+  </div>
+
+  <h2>How It Works</h2>
+  <p>
+    Mira Phyll works by supplying the body with nutrients that assist in flushing out toxins while supporting blood health. Its plant-based composition helps the body maintain balance and function efficiently.
+  </p>
+
+  <a class="btn" href="https://wa.me/233548416564" target="_blank">Order on WhatsApp</a>
+</div>
+
+<footer>
+  <p>&copy; 2026 Mira Phyll. All rights reserved.</p>
+</footer>
+
+<script>
+  let slides = document.querySelectorAll('.slide');
+  let index = 0;
+
+  function showSlides() {
+    slides.forEach((slide) => slide.classList.remove('active'));
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }
+
+  setInterval(showSlides, 3000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedok | Wellness Supplement</title>
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; background:#f0f9ff; color:#0c4a6e; }
+    header { background:#0284c7; color:white; padding:20px; text-align:center; }
+    .container { padding:20px; max-width:1000px; margin:auto; }
+    .slideshow { position:relative; max-width:100%; height:400px; overflow:hidden; border-radius:12px; }
+    .slide { position:absolute; width:100%; height:100%; opacity:0; transition: opacity 1s ease-in-out; }
+    .slide img { width:100%; height:100%; object-fit:cover; }
+    .active { opacity:1; }
+    h2 { color:#0369a1; }
+    .btn { display:inline-block; background:#0284c7; color:white; padding:15px 25px; text-decoration:none; border-radius:8px; margin-top:20px; }
+    .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; margin-top:20px; }
+    .feature { background:white; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    footer { text-align:center; padding:20px; background:#0c4a6e; color:white; margin-top:40px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Wedok</h1>
+  <p>Your Daily Wellness Support</p>
+</header>
+
+<div class="container">
+  <div class="slideshow">
+    <div class="slide active"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKHNG3ZPua70WMFE1KjAujlxDDgy9Mt40tSw&s" alt="Wellness"></div>
+    <div class="slide"><img src="https://reapp.com.gh/wp-content/uploads/2025/12/704346085-270x220.png" alt="Healthy lifestyle"></div>
+    <div class="slide"><img src="https://reapp.com.gh/wp-content/uploads/2025/11/1582010007.png" alt="Nature"></div>
+  </div>
+
+  <h2>What is Wedok?</h2>
+  <p>
+    Wedok is a wellness supplement designed to support overall health, improve daily energy, and promote balance in the female body. It combines carefully selected ingredients aimed at helping you feel your best every day.
+  </p>
+
+  <h2>Key Benefits</h2>
+  <div class="features">
+    <div class="feature">Supports overall body wellness</div>
+    <div class="feature">Boosts daily energy levels</div>
+    <div class="feature">Helps maintain body balance</div>
+    <div class="feature">Promotes a healthy lifestyle</div>
+    <div class="feature">Improve female reproductive health</div>
+  </div>
+
+  <h2>How It Works</h2>
+  <p>
+    Wedok works by providing essential nutrients that support females natural body processes. It helps improve energy, supports internal balance, and contributes to long-term wellness.
+  </p>
+
+  <a class="btn" href="https://wa.me/233548416564" target="_blank">Order on WhatsApp</a>
+</div>
+
+<footer>
+  <p>&copy; 2026 Wedok. All rights reserved.</p>
+</footer>
+
+<script>
+  let slides = document.querySelectorAll('.slide');
+  let index = 0;
+
+  function showSlides() {
+    slides.forEach((slide) => slide.classList.remove('active'));
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }
+
+  setInterval(showSlides, 3000);
+</script>
+
+</body>
+</html>

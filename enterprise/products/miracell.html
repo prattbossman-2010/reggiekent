@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mira-Cell+ | ReggieK Enterprise</title>
+
+<style>
+
+/* RESET */
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#1b5e20;
+  color:white;
+  padding:15px 20px;
+}
+
+.navbar a {
+  color:white;
+  text-decoration:none;
+  margin-left:15px;
+}
+
+/* HERO */
+.hero {
+  text-align:center;
+  padding:30px;
+}
+
+/* SLIDESHOW */
+.slideshow {
+  max-width:400px;
+  margin:20px auto;
+  position:relative;
+}
+
+.slide {
+  display:none;
+}
+
+.slide img {
+  width:100%;
+  border-radius:10px;
+}
+
+.active {
+  display:block;
+}
+
+/* CONTENT */
+.content {
+  padding:20px;
+  max-width:600px;
+  margin:auto;
+}
+
+.content h2 {
+  margin-bottom:10px;
+}
+
+.content p {
+  margin-bottom:15px;
+  line-height:1.5;
+}
+
+/* BUTTON */
+.btn {
+  display:block;
+  width:200px;
+  margin:20px auto;
+  background:#2e7d32;
+  color:white;
+  padding:12px;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .content {
+    padding:15px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <h2>ReggieK Enterprise</h2>
+  <div>
+    <a href="enterprise.html">Home</a>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Mira-Cell+</h1>
+  <p>Advanced cellular health supplement</p>
+</section>
+
+<!-- SLIDESHOW -->
+<div class="slideshow">
+  <div class="slide active">
+    <img src="https://m.media-amazon.com/images/I/41XFnci8r6L._AC_.jpg">
+  </div>
+
+  <div class="slide">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXvAr39OwvvEZn8IDff2j78ICzsj-AE816aQ&s">
+  </div>
+
+  <div class="slide">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDu73TdD4LRa4IoZase3oHX8tDWSWPXvbMkA&s">
+  </div>
+</div>
+
+<!-- CONTENT -->
+<section class="content">
+
+<h2>About Mira-Cell+</h2>
+<p>
+Mira-Cell+ is a nutritional supplement designed to support overall body wellness,
+immune function, and cellular health.
+</p>
+
+<h2>Key Benefits</h2>
+<p>✔ Supports immune system</p>
+<p>✔ Helps improve energy levels</p>
+<p>✔ Aids natural body repair processes</p>
+<p>✔ Promotes general wellbeing</p>
+
+<h2>How It Works</h2>
+<p>
+Mira-Cell+ contains a blend of nutrients and plant-based ingredients
+that support the body’s natural ability to maintain and repair cells.
+</p>
+
+<h2>Who Can Use It?</h2>
+<p>
+Suitable for adults looking to improve general health, boost immunity,
+and maintain an active lifestyle.
+</p>
+
+<button class="btn" onclick="orderNow()">Order on WhatsApp</button>
+
+</section>
+
+<script>
+
+/* SLIDESHOW */
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 3000);
+
+/* WHATSAPP ORDER */
+function orderNow(){
+  const msg = "Hello, I want to order Mira-Cell+";
+  const url = `https://wa.me/233548416564?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank");
+}
+
+</script>
+
+</body>
+</html>

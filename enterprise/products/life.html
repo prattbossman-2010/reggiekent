@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mira Life | Daily Health Support</title>
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; background:#f0fdf4; color:#064e3b; }
+    header { background:#16a34a; color:white; padding:20px; text-align:center; }
+    .container { padding:20px; max-width:1000px; margin:auto; }
+    .slideshow { position:relative; max-width:100%; height:400px; overflow:hidden; border-radius:12px; }
+    .slide { position:absolute; width:100%; height:100%; opacity:0; transition: opacity 1s ease-in-out; }
+    .slide img { width:100%; height:100%; object-fit:cover; }
+    .active { opacity:1; }
+    h2 { color:#15803d; }
+    .btn { display:inline-block; background:#16a34a; color:white; padding:15px 25px; text-decoration:none; border-radius:8px; margin-top:20px; }
+    .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; margin-top:20px; }
+    .feature { background:white; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    footer { text-align:center; padding:20px; background:#052e16; color:white; margin-top:40px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Mira Life</h1>
+  <p>Support Your Everyday Health & Vitality</p>
+</header>
+
+<div class="container">
+  <div class="slideshow">
+    <div class="slide active"><img src="https://pictures-ghana.jijistatic.net/55300604_MzAwLTMwMC05ZmYzOWQ0ZDg3.webp" alt="Healthy life"></div>
+    <div class="slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvW26cI-mqQFDnhzxHMAA3kIRdvLvq02kk_Q&s" alt="Nutrition"></div>
+    <div class="slide"><img src="https://pictures-ghana.jijistatic.net/55300605_MTYwMC0xNjAwLTYxYTllNjc1YTA.webp" alt="Wellness"></div>
+  </div>
+
+  <h2>What is Mira Life?</h2>
+  <p>
+    Mira Life is a daily health supplement formulated to support overall wellness, boost energy, and help maintain a balanced lifestyle. It combines essential nutrients designed to keep your body functioning at its best.
+  </p>
+
+  <h2>Key Benefits</h2>
+  <div class="features">
+    <div class="feature">Supports overall body health</div>
+    <div class="feature">Boosts daily energy and vitality</div>
+    <div class="feature">Promotes a balanced lifestyle</div>
+    <div class="feature">Enhances general well-being</div>
+  </div>
+
+  <h2>How It Works</h2>
+  <p>
+    Mira Life works by supplying essential nutrients that support the body's natural processes. It helps improve energy levels, supports immune function, and promotes long-term wellness.
+  </p>
+
+  <a class="btn" href="https://wa.me/233548416564" target="_blank">Order on WhatsApp</a>
+</div>
+
+<footer>
+  <p>&copy; 2026 Mira Life. All rights reserved.</p>
+</footer>
+
+<script>
+  let slides = document.querySelectorAll('.slide');
+  let index = 0;
+
+  function showSlides() {
+    slides.forEach((slide) => slide.classList.remove('active'));
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }
+
+  setInterval(showSlides, 3000);
+</script>
+
+</body>
+</html>

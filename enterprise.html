@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReggieK Enterprise - Healthy Supplements</title>
+  <link rel="stylesheet" href="style/enterprise.css">
+</head>
+
+<body>
+
+<header id="nav" class="navbar">
+  <h1 class="brand">ReggieK Enterprise</h1>
+  <nav>
+    <a id="home">Home</a>
+    <a id="product">Products</a>
+    <a href="enterprise/about.html">About</a>
+    <a href="enterprise/contact.html">Contact</a>
+  </nav>
+</header>
+
+<section id="hero" class="hero2">
+  <div class="hero-content">
+    <h1>Natural Supplements for a Healthier Life</h1>
+    <p>Boost your energy, strengthen your body, and live better every day.</p>
+    <div class="slideshow">
+      <div class="slide active">Natural Health Supplements</div>
+      <div class="slide">Boost Your Energy Naturally</div>
+      <div class="slide">Feel Stronger Every Day</div>
+    </div>
+    <button class="btn" onclick="orderNow()">Shop Now</button>
+  </div>
+</section>
+
+<!-- HERO + SLIDESHOW -->
+
+<!-- PRODUCTS -->
+<section id="product_section" class="products">
+    <h2>Our Products</h2>
+  
+    <div class="product-carousel">
+      <div class="product-track">
+        <div class="product-card">
+          <img src="https://m.media-amazon.com/images/I/41XFnci8r6L._AC_.jpg" alt="Mira-Cell+">
+          <h3>Mira-Cell+</h3>
+          <p>Supports immune system</p>
+          <div class="rating" data-product="miracell">
+            <span onclick="rate(this,1)">★</span>
+            <span onclick="rate(this,2)">★</span>
+            <span onclick="rate(this,3)">★</span>
+            <span onclick="rate(this,4)">★</span>
+            <span onclick="rate(this,5)">★</span>
+          </div>
+          <button class="btn"><a href="enterprise/products/miracell.html">View Details</a></button>
+          <button class="btn" onclick="showPopup('Mira-Cell+')">Buy</button>
+        </div>
+  
+        <div class="product-card">
+          <img src="https://i.ebayimg.com/images/g/azIAAeSwprhn3TJ8/s-l960.webp" alt="Mira-Lanang">
+          <h3>Mira-Lanang</h3>
+          <p>Helps boost male reproductive health</p>
+          <div class="rating" data-product="miracell">
+            <span onclick="rate(this,1)">★</span>
+            <span onclick="rate(this,2)">★</span>
+            <span onclick="rate(this,3)">★</span>
+            <span onclick="rate(this,4)">★</span>
+            <span onclick="rate(this,5)">★</span>
+          </div>
+          <button class="btn"><a href="enterprise/products/lanang.html">View Details</a></button>
+          <button class="btn" onclick="showPopup('Mira-Lanang')">Buy</button>
+        </div>
+  
+        <!-- Add more product cards here -->
+
+        <div class="product-card">
+            <img src="https://files.selar.co/product-images/2024/products/Beauty_Pearl1/miira-curve-advance-loss--selar.co-671ff641cfec3.jpg" 
+            alt="Mira-Curve">
+            <h3>Mira-Curve</h3>
+            <p>Helps in weight loss and fat burning</p>
+            <div class="rating" data-product="miracell">
+              <span onclick="rate(this,1)">★</span>
+              <span onclick="rate(this,2)">★</span>
+              <span onclick="rate(this,3)">★</span>
+              <span onclick="rate(this,4)">★</span>
+              <span onclick="rate(this,5)">★</span>
+            </div>
+            <button class="btn"><a href="enterprise/products/curve.html">View Details</a></button>
+            <button class="btn" onclick="showPopup('Mira-Curve')">Buy</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://buyam.co/storage/products/medium_9a0c3654-93e1-442d-9087-7fc20ad14be4.png" alt="Mira-Phyll">
+            <h3>Mira-Phyll</h3>
+            <p>Helps in natural body detoxification</p>
+            <div class="rating" data-product="miracell">
+              <span onclick="rate(this,1)">★</span>
+              <span onclick="rate(this,2)">★</span>
+              <span onclick="rate(this,3)">★</span>
+              <span onclick="rate(this,4)">★</span>
+              <span onclick="rate(this,5)">★</span>
+            </div>
+            <button class="btn"><a href="enterprise/products/phyll.html">View Details</a></button>
+            <button class="btn" onclick="showPopup('Mira-Phyll')">Buy</button>
+        </div>
+
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Second Carousel -->
+  <div class="product-carousel second-carousel">
+    <div class="product-track">
+      <!-- more product cards here -->
+
+      <div class="product-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKHNG3ZPua70WMFE1KjAujlxDDgy9Mt40tSw&s" 
+          alt="Mira-Wedok">
+        <h3>Mira-Wedok</h3>
+        <p>Improve female reproductive health</p>
+        <div class="rating" data-product="miracell">
+          <span onclick="rate(this,1)">★</span>
+          <span onclick="rate(this,2)">★</span>
+          <span onclick="rate(this,3)">★</span>
+          <span onclick="rate(this,4)">★</span>
+          <span onclick="rate(this,5)">★</span>
+        </div>
+        <button class="btn"><a href="enterprise/products/wedok.html">View Details</a></button>
+        <button class="btn" onclick="showPopup('Mira-Wedok')">Buy</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://loja.ng/uploadvideos/LOJA111122053135AM.jpg" alt="Mira-Coffee">
+        <h3>Mira-Coffee</h3>
+        <p>Instant Energy throughout the day</p>
+        <div class="rating" data-product="miracell">
+          <span onclick="rate(this,1)">★</span>
+          <span onclick="rate(this,2)">★</span>
+          <span onclick="rate(this,3)">★</span>
+          <span onclick="rate(this,4)">★</span>
+          <span onclick="rate(this,5)">★</span>
+        </div>
+        <button class="btn"><a href="enterprise/products/coffee.html">View Details</a></button>
+        <button class="btn" onclick="showPopup('Mira-Coffee')">Buy</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://buyam.co/storage/products/medium_f2fda093-f381-424c-bb51-26b826b7c0c3.png" alt="Mira-Life">
+        <h3>Mira-Life</h3>
+        <p>Improve lungs and reproductive system</p>
+        <div class="rating" data-product="miracell">
+          <span onclick="rate(this,1)">★</span>
+          <span onclick="rate(this,2)">★</span>
+          <span onclick="rate(this,3)">★</span>
+          <span onclick="rate(this,4)">★</span>
+          <span onclick="rate(this,5)">★</span>
+        </div>
+        <button class="btn"><a href="enterprise/products/life.html">View Details</a></button>
+        <button class="btn" onclick="showPopup('Mira-Life')">Buy</button>
+    </div>
+      
+
+    </div>
+</div>
+  
+<br>
+<br>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <h2>What Our Customers Say</h2>
+  <div class="testimonial">
+    <p>"These supplements changed my energy levels completely!"</p>
+    <h4>- Ama, Accra</h4>
+  </div>
+
+  <div class="testimonial">
+    <p>"These products bossted my vitality and strength."</p>
+    <h4>- Pratt, Dunkwa</h4>
+  </div>
+</section>
+
+
+<div id="trustPopup" class="popup">
+  <div class="popup-content">
+    <h3>Before You Order, Our Products Are</h3>
+
+  </br>
+
+    <p>✔ Authentic Products</p>
+    <p>✔ Trusted by customers across Ghana</p>
+    <p>✔ Fast delivery available</p>
+    <p>✔ 100% authentic supplements</p>
+    <p>✔ Secure Payments</p>
+    <p>✔ Registered member of Revobit International</p>
+
+    <p>📞 Call us: <a style="text-decoration:none;" href="tel:+233548416564">+233 548 416 564</a></p>
+
+    <button id="confirmBtn" class="btn">Continue to WhatsApp</button>
+    <button onclick="closePopup()" class="btn cancel">Cancel</button>
+  </div>
+</div>
+
+
+
+
+<!-- CALL Floating Button -->
+<a href="tel:+233548416564" class="call-float" title="Call Us">
+  <img src="images/phone.png" alt="Call">
+</a>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/233548416564?text=Hi%20i%20am%20contacting%20from%20your%20website" 
+   class="whatsapp-float" target="_blank" title="Whatsapp Us">
+  <img src="images/whatsapp.jpg" alt="WhatsApp">
+</a>
+
+<footer class="footer">
+  <img class="logo" src="images/logo.png" alt="logo">
+  <p>© 2026 ReggieK Enterprise. All rights reserved.</p>
+</footer>
+
+<script src="javascript/enterprise.js"></script>
+</body>
+</html>
