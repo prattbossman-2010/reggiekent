@@ -1,17 +1,70 @@
-// HERO SLIDESHOW
+// HERO SLIDESHOW (NEW CODE)
 let slides = document.querySelectorAll('.slide');
 let current = 0;
+let startX = 0;
+let endX = 0;
+let slideshow = document.querySelector('.slideshow');
 
 function showSlide(index) {
   slides.forEach(slide => slide.classList.remove('active'));
   slides[index].classList.add('active');
 }
 
+// Auto-advance slides
 setInterval(() => {
   current = (current + 1) % slides.length;
   showSlide(current);
 }, 3000);
 
+// Touch events for swipe functionality
+slideshow.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+}, { passive: true });
+
+slideshow.addEventListener('touchmove', (e) => {
+  endX = e.touches[0].clientX;
+}, { passive: true });
+
+slideshow.addEventListener('touchend', () => {
+  const swipeThreshold = 50;
+  const diff = startX - endX;
+  
+  if (Math.abs(diff) > swipeThreshold) {
+    if (diff > 0) {
+      // Swipe left - next slide
+      current = (current + 1) % slides.length;
+    } else {
+      // Swipe right - previous slide
+      current = (current - 1 + slides.length) % slides.length;
+    }
+    showSlide(current);
+  }
+});
+
+// Mouse events for swipe functionality (for desktop testing)
+slideshow.addEventListener('mousedown', (e) => {
+  startX = e.clientX;
+  e.preventDefault();
+});
+
+slideshow.addEventListener('mouseup', (e) => {
+  endX = e.clientX;
+  const swipeThreshold = 50;
+  const diff = startX - endX;
+  
+  if (Math.abs(diff) > swipeThreshold) {
+    if (diff > 0) {
+      // Swipe left - next slide
+      current = (current + 1) % slides.length;
+    } else {
+      // Swipe right - previous slide
+      current = (current - 1 + slides.length) % slides.length;
+    }
+    showSlide(current);
+  }
+});
+
+// Keep all your existing JavaScript code below here:
 // WHATSAPP ORDER BUTTON
 function orderNow() {
   let phone = "233548416564";
@@ -85,18 +138,17 @@ function orderProduct(productName) {
 }
 
 
- // Add event listener to the button in the hero section
- document.querySelector('#nav #home').addEventListener('click', () => {
+// Add event listener to the button in the hero section
+document.querySelector('#nav #home').addEventListener('click', () => {
   // Scroll to the about section
   document.querySelector('#hero').scrollIntoView({ behavior: 'smooth' });
 });
 
- // Add event listener to the button in the hero section
- document.querySelector('#nav #product').addEventListener('click', () => {
+// Add event listener to the button in the hero section
+document.querySelector('#nav #product').addEventListener('click', () => {
   // Scroll to the about section
   document.querySelector('#product_section').scrollIntoView({ behavior: 'smooth' });
 });
-
 
 let selectedProduct = "";
 
