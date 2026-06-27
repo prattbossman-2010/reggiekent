@@ -1,170 +1,186 @@
-// HERO SLIDESHOW (NEW CODE)
-let slides = document.querySelectorAll('.slide');
-let current = 0;
-let startX = 0;
-let endX = 0;
-let slideshow = document.querySelector('.slideshow');
 
-function showSlide(index) {
-  slides.forEach(slide => slide.classList.remove('active'));
-  slides[index].classList.add('active');
+// ================= HERO SLIDESHOW =================
+
+const slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+
+function showSlide(index){
+    slides.forEach(slide=>slide.classList.remove("active"));
+    slides[index].classList.add("active");
 }
 
-// Auto-advance slides
-setInterval(() => {
-  current = (current + 1) % slides.length;
-  showSlide(current);
-}, 3000);
-
-// Touch events for swipe functionality
-slideshow.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX;
-}, { passive: true });
-
-slideshow.addEventListener('touchmove', (e) => {
-  endX = e.touches[0].clientX;
-}, { passive: true });
-
-slideshow.addEventListener('touchend', () => {
-  const swipeThreshold = 50;
-  const diff = startX - endX;
-  
-  if (Math.abs(diff) > swipeThreshold) {
-    if (diff > 0) {
-      // Swipe left - next slide
-      current = (current + 1) % slides.length;
-    } else {
-      // Swipe right - previous slide
-      current = (current - 1 + slides.length) % slides.length;
+setInterval(()=>{
+    currentSlide++;
+    if(currentSlide >= slides.length){
+        currentSlide = 0;
     }
-    showSlide(current);
-  }
-});
+    showSlide(currentSlide);
+},6000);
 
-// Mouse events for swipe functionality (for desktop testing)
-slideshow.addEventListener('mousedown', (e) => {
-  startX = e.clientX;
-  e.preventDefault();
-});
 
-slideshow.addEventListener('mouseup', (e) => {
-  endX = e.clientX;
-  const swipeThreshold = 50;
-  const diff = startX - endX;
-  
-  if (Math.abs(diff) > swipeThreshold) {
-    if (diff > 0) {
-      // Swipe left - next slide
-      current = (current + 1) % slides.length;
-    } else {
-      // Swipe right - previous slide
-      current = (current - 1 + slides.length) % slides.length;
+// ================= PRODUCT CAROUSEL =================
+
+function initCarousel(selector, autoTime=7000){
+
+    const carousel = document.querySelector(selector);
+    const track = carousel.querySelector(".product-track");
+    const cards = track.querySelectorAll(".product-card");
+
+    const cardWidth = cards[0].offsetWidth + 20;
+
+    let index = 0;
+    let startX = 0;
+
+    function updateCarousel(){
+        const maxIndex = cards.length - 1;
+
+        if(index < 0) index = 0;
+        if(index > maxIndex) index = maxIndex;
+
+        track.style.transform =
+        `translateX(-${index * cardWidth}px)`;
     }
-    showSlide(current);
-  }
-});
 
-// Keep all your existing JavaScript code below here:
-// WHATSAPP ORDER BUTTON
-function orderNow() {
-  let phone = "233548416564";
-  let message = "Hello, I want to order your supplement.";
-  let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-  window.open(url, '_blank');
-}
+    // Auto Slide
+    setInterval(()=>{
+        index++;
 
-// PRODUCT CAROUSELS (multiple rows)
-function initCarousel(carouselSelector, visibleCount = 3, interval = 3000) {
-  const track = document.querySelector(`${carouselSelector} .product-track`);
-  const productCards = track.querySelectorAll('.product-card');
-  let index = 0;
-  const cardWidth = productCards[0].offsetWidth + 20; // width + margin
-
-  function moveCarousel() {
-    index++;
-    if (index > productCards.length - visibleCount) {
-      index = 0;
-    }
-    const offset = -(index * cardWidth);
-    track.style.transform = `translateX(${offset}px)`;
-  }
-
-  setInterval(moveCarousel, interval);
-}
-
-// Initialize both carousels
-initCarousel('.product-carousel', 3, 3000);     // first row
-initCarousel('.second-carousel', 3, 3500);      // second row
-
-function rate(element, rating) {
-  const parent = element.parentElement;
-  const stars = parent.querySelectorAll("span");
-
-  stars.forEach((star, index) => {
-    if (index < rating) {
-      star.classList.add("active");
-    } else {
-      star.classList.remove("active");
-    }
-  });
-
-  // Save rating (optional)
-  const product = parent.getAttribute("data-product");
-  localStorage.setItem(product, rating);
-}
-
-// If star rating gets stuck when testing,type localStorage.clear(); in the web broser console of that tab
-
-window.onload = function () {
-  document.querySelectorAll(".rating").forEach(ratingDiv => {
-    const product = ratingDiv.getAttribute("data-product");
-    const saved = localStorage.getItem(product);
-
-    if (saved) {
-      const stars = ratingDiv.querySelectorAll("span");
-      stars.forEach((star, index) => {
-        if (index < saved) {
-          star.classList.add("active");
+        if(index > cards.length - 1){
+            index = 0;
         }
-      });
-    }
-  });
+
+        updateCarousel();
+    },autoTime);
+
+    // Mobile Swipe
+    carousel.addEventListener("touchstart",(e)=>{
+        startX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener("touchend",(e)=>{
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+
+        if(Math.abs(diff) > 50){
+            if(diff > 0){
+                index++;
+            }else{
+                index--;
+            }
+
+            updateCarousel();
+        }
+    });
+
+    // Desktop Drag
+    carousel.addEventListener("mousedown",(e)=>{
+        startX = e.clientX;
+    });
+
+    carousel.addEventListener("mouseup",(e)=>{
+        const diff = startX - e.clientX;
+
+        if(Math.abs(diff) > 50){
+            if(diff > 0){
+                index++;
+            }else{
+                index--;
+            }
+
+            updateCarousel();
+        }
+    });
+}
+
+initCarousel(".product-carousel",19000);
+initCarousel(".second-carousel",19000);
+
+
+// ================= STAR RATING =================
+
+function rate(element,rating){
+
+    const parent = element.parentElement;
+    const stars = parent.querySelectorAll("span");
+
+    stars.forEach((star,index)=>{
+        if(index < rating){
+            star.classList.add("active");
+        }else{
+            star.classList.remove("active");
+        }
+    });
+
+    localStorage.setItem(
+        parent.getAttribute("data-product"),
+        rating
+    );
+}
+
+window.onload = function(){
+
+    document.querySelectorAll(".rating")
+    .forEach(ratingDiv=>{
+
+        const saved =
+        localStorage.getItem(
+            ratingDiv.getAttribute("data-product")
+        );
+
+        if(saved){
+
+            const stars =
+            ratingDiv.querySelectorAll("span");
+
+            stars.forEach((star,index)=>{
+                if(index < saved){
+                    star.classList.add("active");
+                }
+            });
+        }
+    });
 };
 
-function orderProduct(productName) {
-  const message = `Hello, I want to order ${productName}`;
-  const url = `https://wa.me/233548416564?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
+
+// ================= ORDER BUTTON =================
+
+function orderNow(){
+
+    const url =
+    `https://wa.me/233548416564?text=${encodeURIComponent("Hello, I want to order your supplement.")}`;
+
+    window.open(url,"_blank");
 }
 
+let selectedProduct="";
 
-// Add event listener to the button in the hero section
-document.querySelector('#nav #home').addEventListener('click', () => {
-  // Scroll to the about section
-  document.querySelector('#hero').scrollIntoView({ behavior: 'smooth' });
-});
-
-// Add event listener to the button in the hero section
-document.querySelector('#nav #product').addEventListener('click', () => {
-  // Scroll to the about section
-  document.querySelector('#product_section').scrollIntoView({ behavior: 'smooth' });
-});
-
-let selectedProduct = "";
-
-function showPopup(productName) {
-  selectedProduct = productName;
-  document.getElementById("trustPopup").style.display = "flex";
+function showPopup(productName){
+    selectedProduct = productName;
+    document.getElementById("trustPopup").style.display="flex";
 }
 
-function closePopup() {
-  document.getElementById("trustPopup").style.display = "none";
+function closePopup(){
+    document.getElementById("trustPopup").style.display="none";
 }
 
-document.getElementById("confirmBtn").onclick = function () {
-  const message = `Hello, I want to order ${selectedProduct}`;
-  const url = `https://wa.me/233548416564?text=${encodeURIComponent(message)}`;
-  
-  window.open(url, "_blank");
-  closePopup();
+document.getElementById("confirmBtn").onclick=function(){
+
+    const url =
+    `https://wa.me/233548416564?text=${encodeURIComponent("Hello, I want to order " + selectedProduct)}`;
+
+    window.open(url,"_blank");
+    closePopup();
 };
+
+
+// ================= NAVIGATION =================
+
+document.querySelector("#home").addEventListener("click",()=>{
+    document.querySelector("#hero")
+    .scrollIntoView({behavior:"smooth"});
+});
+
+document.querySelector("#product").addEventListener("click",()=>{
+    document.querySelector("#product_section")
+    .scrollIntoView({behavior:"smooth"});
+});
